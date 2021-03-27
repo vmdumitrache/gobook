@@ -37,9 +37,6 @@ const (
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if (r.URL.Query().Get("cycles")) == "" {
-			lissajous(w, 0)
-		}
 		cycles, err := strconv.Atoi(r.URL.Query().Get("cycles"))
 		if err != nil {
 			log.Fatal(err)
